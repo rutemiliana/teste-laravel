@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProdutoController; //importando
 use App\Models\Produto;
+
 
 Route::get('/', function () {
     return view('inicio');
@@ -34,15 +36,10 @@ Route::post('/cadastrar-produto', function (Request $request) {
 
 //tentativa
 
-Route::get('/ver-produto', [ProdutoController::class,'verProdutos']);
+Route::get('/ver-produto', [ProdutoController::class,'index']);
     
 
-//rota de leitura do produto
-Route::get('/ver-produto/{id}', function ($id) {
-    $produto = Produto::find($id); //variavel pra armazenar tudo que estiver em Produto
-    //dd($id); teste pra ser se tá td ok
-    return view('ver', ['produto' => $produto]); //manda a variavel pra tela ver
-});
+
 
 //rotas de edicao do produto. get pra pegar o produto e mostrar na tela. Post pra enviar para o servidor
 Route::get('/editar-produto/{id}', function ($id) {

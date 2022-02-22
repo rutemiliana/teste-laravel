@@ -7,13 +7,7 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-
-    public function verProdutos()
-    {
-        
-        return view('ver')->with[Produto::all()];
-    }
-    
+  
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +15,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        $produtos = Produto::all();
+        return view('ver', ['produtos' => $produtos]); 
     }
 
     /**

@@ -20,6 +20,9 @@
         <br><br> 
         <button>Salvar Produto</button>
     </form>
+    <br>
+
+    <a href="/ver-produto"><button>Ver produtos</button></a>
     
 </body>
 </html>

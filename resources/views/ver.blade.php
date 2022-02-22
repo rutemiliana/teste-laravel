@@ -8,22 +8,9 @@
 </head>
 <body>
 
-<table>
-    <tr>
-           <td>{{$produto -> nome}}</td>
-           <td> {{$produto -> valor}}</td>
-    </tr>
-    
-</table>
+    @foreach($produtos as $produto) 
+        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}} </p>
+    @endforeach
 
-   <!--<label>Nome do produto:</label>
-        <input type="text" name="nome" value="{{ $produto -> nome }}"> 
-        <br><br>
-        <label>Valor do produto:</label>
-        <input type="text"  name="valor" value="{{ $produto -> valor }}"> 
-        <br><br>
-        <label>Quantidade em estoque:</label>
-        <input type="text"  name="estoque" value="{{ $produto -> estoque }}">
-        <br><br> -->
 </body>
 </html>
