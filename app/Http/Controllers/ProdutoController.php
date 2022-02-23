@@ -67,7 +67,9 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Produto::find($id); //variavel pra armazenar tudo que estiver em Produto
+        //dd($id); teste pra ser se tá td ok
+        return view('editar', ['produto' => $produto]); //manda a variavel pra tela ver
     }
 
     /**
@@ -79,7 +81,13 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $produto = Produto::find($id);
+        $produto->update([
+            'nome' => $request->nome,
+            'valor' => $request->valor,
+            'estoque' => $request->estoque,
+        ]);
+        return redirect()->route('ver.produtos');
     }
 
     /**
@@ -90,6 +98,8 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produto = Produto::find($id);
+        $produto->delete();
+        return redirect()->route('ver.produtos');
     }
 }

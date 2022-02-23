@@ -30,8 +30,14 @@ Route::post('/ver-produtos', [ProdutoController::class, 'store'])->name('criar.p
 
 Route::get('/ver-produtos', [ProdutoController::class,'index'])->name('ver.produtos'); //dei nome para a rota
 
+Route::get('/editar-produto/{id}', [ProdutoController::class, 'edit']);
 
-//rotas de edicao do produto. get pra pegar o produto e mostrar na tela. Post pra enviar para o servidor
+Route::post('/editar-produto/{id}', [ProdutoController::class, 'update']);
+
+Route::get ('/excluir-produto/{id}', [ProdutoController::class, 'destroy']);
+
+
+/* //rotas de edicao do produto. get pra pegar o produto e mostrar na tela. Post pra enviar para o servidor
 Route::get('/editar-produto/{id}', function ($id) {
     $produto = Produto::find($id); //variavel pra armazenar tudo que estiver em Produto
     //dd($id); teste pra ser se tá td ok
@@ -52,7 +58,10 @@ Route::post('/editar-produto/{id}', function (Request $request , $id) {
 Route::get('/excluir-produto/{id}', function ($id) {
     $produto = Produto::find($id);
     $produto->delete();
-   
     echo "Produto excluido com sucesso";
 });
+
+*/
+
+
 
