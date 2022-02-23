@@ -7,7 +7,7 @@
     <title>Produtos</title>
 </head>
 <body>
-    <form action="/cadastrar-produto" method= 'POST'>
+    <form action="/ver-produtos" method= 'POST'>
         @csrf {{-- gera token de segurnaça a cada envio--}}
         <label>Nome do produto:</label>
         <input type="text" name="nome" > 
@@ -18,11 +18,11 @@
         <label>Quantidade em estoque:</label>
         <input type="text"  name="estoque" >
         <br><br> 
-        <button>Salvar Produto</button>
+        <button type="submit">Salvar Produto</button>
     </form>
     <br>
 
-    <a href="/ver-produto"><button>Ver produtos</button></a>
+    <a href="{{route ('ver.produtos')}}"><button>Ver produtos</button></a>
     
 </body>
 </html>

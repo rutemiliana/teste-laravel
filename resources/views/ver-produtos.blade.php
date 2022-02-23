@@ -8,8 +8,11 @@
 </head>
 <body>
 
+
+
     @foreach($produtos as $produto) 
-        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}} </p>
+        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}}<button>Deletar</button> </p> 
+        
     @endforeach
 
 </body>

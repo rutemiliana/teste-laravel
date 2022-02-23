@@ -22,23 +22,13 @@ Route::get('/', function () {
 });
 
 //rota da criação de produto
-Route::post('/cadastrar-produto', function (Request $request) {
+Route::post('/ver-produtos', [ProdutoController::class, 'store'])->name('criar.produto');;
+    //store = armazenar
     //criando um produto no banco de dados
-    Produto::create([
-        'nome' => $request->nome,
-        'valor' => $request->valor,
-        'estoque' => $request->estoque,
-    ]);
-    //dd($request ->all()); //all para mostrar todas as informações que estao chegando
-    //dd = debug and die. mostra na trela e encerra a plicação
-    echo "Produto criado com sucesso";
-});
 
 //tentativa
 
-Route::get('/ver-produto', [ProdutoController::class,'index']);
-    
-
+Route::get('/ver-produtos', [ProdutoController::class,'index'])->name('ver.produtos'); //dei nome para a rota
 
 
 //rotas de edicao do produto. get pra pegar o produto e mostrar na tela. Post pra enviar para o servidor

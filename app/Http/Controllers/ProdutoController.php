@@ -15,8 +15,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
-        return view('ver', ['produtos' => $produtos]); 
+        $produtos = Produto::get();
+        return view('ver-produtos', ['produtos' => $produtos]); 
     }
 
     /**
@@ -26,7 +26,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('inicio'); 
     }
 
     /**
@@ -37,7 +37,15 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produto::create([
+            'nome' => $request->nome,
+            'valor' => $request->valor,
+            'estoque' => $request->estoque,
+        ]);
+
+        //dd($request ->all()); //all para mostrar todas as informações que estao chegando
+        //dd = debug and die. mostra na trela e encerra a plicação
+        return redirect()->route('ver.produtos');
     }
 
     /**
@@ -71,7 +79,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
