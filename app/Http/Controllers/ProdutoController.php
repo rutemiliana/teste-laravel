@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produto;
-
+use App\Models\Fornecedor;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+
+    public function fornecedor(){
+        return $this->hasOne(Produto::class, 'id_produto');
+    }
   
     /**
      * Display a listing of the resource.

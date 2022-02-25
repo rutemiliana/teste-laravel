@@ -17,8 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('endereco');
+            $table->unsignedBigInteger('id_produto');
             $table->timestamps();
         });
+
+        Schema::table('fornecedors', function (Blueprint $table) {
+            $table->foreign('id_produto')->references('id')->on('produtos')->onDelete('cascade');  
+        });
+
+
     }
 
     /**
