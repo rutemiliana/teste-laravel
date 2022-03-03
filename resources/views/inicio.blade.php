@@ -17,6 +17,7 @@
         <br><br>
         <label>Quantidade em estoque:</label>
         <input type="text"  name="estoque" >
+        
         <br><br> 
         <button type="submit">Salvar Produto</button>
     </form>

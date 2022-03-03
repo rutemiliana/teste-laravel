@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->text('descricao')->nullable(); //aceita valor nulo
-            $table->float('valor', 8 , 2)->default(0.01);
-            $table->integer('estoque')->default(1);
-            $table->timestamps(); //create_at e update_at
+        Schema::table('fornecedors', function (Blueprint $table) {
+            $table->string('uf' , 2);
+            $table->string('email' , 150);
         });
+
     }
 
     /**
@@ -30,6 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::table('fornecedors', function (Blueprint $table) {
+            //para remover a coluna
+           // $table->dropColumn('uf' , 2)ou uma array de colunas:
+           $table->dropColumn(['uf' , 'email']);
+        });
     }
 };

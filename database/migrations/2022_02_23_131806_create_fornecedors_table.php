@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('fornecedors', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('endereco');
-            $table->unsignedBigInteger('id_produto');
+            $table->string('nome' , 50);
+            $table->string('endereco' , 100);
+           // $table->unsignedBigInteger('id_produto');
             $table->timestamps();
         });
 
-        Schema::table('fornecedors', function (Blueprint $table) {
-            $table->foreign('id_produto')->references('id')->on('produtos')->onDelete('cascade');  
-        });
+        //Schema::table('fornecedors', function (Blueprint $table) {
+          //  $table->foreign('id_produto')->references('id')->on('produtos')->onDelete('cascade');  
+        //});
 
 
     }
