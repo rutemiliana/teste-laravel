@@ -12,11 +12,12 @@
 
     @foreach($produtos as $produto) 
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
-        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}}
-        <button type="submit">Editar</button> </form>
+            <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}}
+            <button type="submit">Editar</button> </form>
         <form action="/excluir-produto/{{$produto -> id}}" method="GET">
         <button type="submit">Deletar</button> </form></p>
     @endforeach
+    
     <a href="/">Cadastrar novo produto</a>
 </body>
 </html>
