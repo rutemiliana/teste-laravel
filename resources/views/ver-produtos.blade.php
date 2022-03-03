@@ -9,11 +9,33 @@
 <body>
 
 
+<table>
+    @foreach($produtos as $produto) 
+    <tr>
+        <td>
+        Nome: {{$produto -> nome}}
+        </td>
+        <td>
+        Valor: {{$produto -> valor}}
+        </td>
+        <td>
+        <form action="/editar-produto/{{$produto -> id}}" method="GET">
+            <button type="submit">Editar</button>
+         </form>
+        </td>
+        <td>
+        <form action="/excluir-produto/{{$produto -> id}}" method="GET">
+        <button type="submit">Deletar</button> </form>
+        </td>
+    </tr>
+    @endforeach
+</table>
 
     @foreach($produtos as $produto) 
+        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}}
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
-            <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}}
-            <button type="submit">Editar</button> </form>
+            <button type="submit">Editar</button>
+         </form>
         <form action="/excluir-produto/{{$produto -> id}}" method="GET">
         <button type="submit">Deletar</button> </form></p>
     @endforeach
