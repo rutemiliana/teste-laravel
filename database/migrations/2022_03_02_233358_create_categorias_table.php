@@ -58,7 +58,9 @@ return new class extends Migration
 
             //remover coluna categoria_id
             $table->dropColumn('categoria_id');
+
         });
+        
 
         Schema::dropIfExists('categorias');
     }

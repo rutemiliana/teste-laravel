@@ -32,7 +32,7 @@
 </table>
 
     @foreach($produtos as $produto) 
-        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}}
+        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}} -- Categoria: {{$produto -> categoria_id}}
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
             <button type="submit">Editar</button>
          </form>
