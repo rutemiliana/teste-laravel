@@ -17,6 +17,11 @@
         <br><br>
         <label>Quantidade em estoque:</label>
         <input type="text"  name="estoque" >
+        <label>Categoria:</label>
+        <select id="id_categorias" name="categoria_id">
+            <option value="1">Carro</option>
+            <option value="2">Moto</option>
+        </select>
         
         <br><br> 
         <button type="submit">Salvar Produto</button>

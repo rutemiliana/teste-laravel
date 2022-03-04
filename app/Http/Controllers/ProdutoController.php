@@ -45,6 +45,7 @@ class ProdutoController extends Controller
             'nome' => $request->nome,
             'valor' => $request->valor,
             'estoque' => $request->estoque,
+            'categoria_id' => $request->categoria_id,
         ]);
 
         //dd($request ->all()); //all para mostrar todas as informações que estao chegando
