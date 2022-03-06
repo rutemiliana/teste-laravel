@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProdutoController; //importando
+use App\Http\Controllers\CategoriaController;
 use App\Models\Produto;
 
 
@@ -54,6 +55,7 @@ Route::post('/editar-produto/{id}', function (Request $request , $id) {
     echo "Produto editado com sucesso";
 });
 
+
 //deletar produto
 Route::get('/excluir-produto/{id}', function ($id) {
     $produto = Produto::find($id);
@@ -62,6 +64,25 @@ Route::get('/excluir-produto/{id}', function ($id) {
 });
 
 */
+
+/**categorias */
+//criar categoria
+Route::get('/criar-categoria', function () {
+    return view('criar-categoria');
+});
+Route::post('/criar-categoria', [CategoriaController::class, 'store']);
+
+//ver categorias
+Route::get('/ver-categorias', [CategoriaController::class, 'index'])->name('ver.categorias');
+
+//Editar categoria
+Route::get('/editar-categoria/{id}', [CategoriaController::class, 'edit']);
+Route::post('/editar-categoria/{id}', [CategoriaController::class, 'update']);
+
+
+//deletar categoria
+Route::get('/excluir-categoria/{id}', [CategoriaController::class, 'destroy']);
+
 
 
 
