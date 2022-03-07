@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.main') <!--Linkankdo arquivos da pasta layouts, arquivo main-->
+
+@section('title', 'Criar categoria') 
+
+@section('content')
+  <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Crie uma categoria</h1>
-    <form action="/criar-categoria" method="POST"> 
-    @csrf
-    <label for="categoria">Digite o nome de uma categoria:</label>
-    <input type="text" name="categoria">
-    <button type="submit">Criar</button>   
+
+    <form action="/criar-categoria" method="POST" >
+        @csrf
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input type="text" class="form-control"  name="categoria" placeholder="Nome da categoria">
+        </div>
+        <button type="submit" class="btn btn-info">Criar</button>
+    </div>
     </form>
-</body>
-</html>
+
+
+@endsection
