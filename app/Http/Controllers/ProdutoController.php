@@ -49,7 +49,7 @@ class ProdutoController extends Controller
         ]);
 
         //dd($request ->all()); //all para mostrar todas as informações que estao chegando
-        //dd = debug and die. mostra na trela e encerra a plicação
+        //dd = debug and die. mostra na trela e encerra a aplicação
         return redirect()->route('ver.produtos');
     }
 

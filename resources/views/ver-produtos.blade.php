@@ -33,7 +33,7 @@
 
     @foreach($produtos as $produto) 
         <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}} -- Categoria: {{$produto -> categoria_id}} <br>
-        
+         <div id="event-create-container" class="col-md-6 offset-md-3">
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
             <button type="submit">Editar</button>
          </form>
