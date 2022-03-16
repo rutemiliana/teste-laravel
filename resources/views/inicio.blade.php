@@ -7,7 +7,7 @@
     <title>Produtos</title>
 </head>
 <body>
-    <form action="/ver-produtos" method= 'POST'>
+    <form action="/criar-produto" method= 'POST'>
         @csrf {{-- gera token de segurnaça a cada envio--}}
         <label>Nome do produto:</label>
         <input type="text" name="nome" > 

@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 //rota da criação de produto
-Route::post('/ver-produtos', [ProdutoController::class, 'store'])->name('criar.produto');;
+Route::post('/criar-produto', [ProdutoController::class, 'store'])->name('criar.produto');;
     //store = armazenar
     //criando um produto no banco de dados
 

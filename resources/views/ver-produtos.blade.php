@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
-</head>
-<body>
+@extends('layouts.main') <!--Linkankdo arquivos da pasta layouts, arquivo main-->
 
 
-<table>
+@section('title' , 'produtos')
+@section('content')
+{{--
+    <table>
     @foreach($produtos as $produto) 
     <tr>
         <td>
@@ -17,6 +12,9 @@
         </td>
         <td>
         Valor: {{$produto -> valor}}
+        </td>
+        <td>
+        Quantidade em estoque: {{$produto -> estoque}}
         </td>
         <td>
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
@@ -30,16 +28,45 @@
     </tr>
     @endforeach
 </table>
+--}}
 
-    @foreach($produtos as $produto) 
-        <p>Nome: {{$produto -> nome}} -- Valor: {{$produto -> valor}} -- Categoria: {{$produto -> categoria_id}} <br>
-         <div id="event-create-container" class="col-md-6 offset-md-3">
+
+<div class="container">
+    <h1 class="">Tabela de produtos</h1>
+    <a  href="/" class="text-decoration-none text-white"><button type="button" class="btn btn-primary"><b> + Novo produto</b></button></a>
+<i class="bi-alarm"></i>
+<table class="table  table-bordered ">
+  <thead >
+    <tr> 
+      <th scope="col">Produto</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Quantidade em estoque</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($produtos as $produto)
+    <tr>
+      
+      <td>{{$produto -> nome}}</td>
+      <td>{{$produto -> valor}}</td>
+      <td>{{$produto -> estoque}}</td>
+      <td>
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
-            <button type="submit">Editar</button>
+            <button type="submit" class="btn btn-outline-success">Editar</button>
          </form>
+        </td>
+        <td>
         <form action="/excluir-produto/{{$produto -> id}}" method="GET">
-        <button type="submit">Deletar</button> </form></p>
+        <button type="submit" class="btn btn-outline-danger">Deletar</button> </form>
+        </td>
+    </tr>
     @endforeach
-    <a href="/">Cadastrar novo produto</a>
-</body>
-</html>
+  </tbody>
+</table>
+</div>
+
+
+   
+@endsection
