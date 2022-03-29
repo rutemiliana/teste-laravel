@@ -11,17 +11,17 @@
     <form action="/criar-produto" method= 'POST'>
         @csrf {{-- gera token de segurnaça a cada envio--}}
         <label>Nome do produto:</label>
-        <input type="text" name="nome" > 
+        <input type="text" name="nome" value="{{old('nome')}}"> 
         <br><br>
         <label>Valor do produto:</label>
-        <input type="text"  name="valor"> 
+        <input type="text"  name="valor" value="{{old('valor')}}"> 
         <br><br>
         <label>Quantidade em estoque:</label>
-        <input type="text"  name="estoque" >
+        <input type="text"  name="estoque" value="{{old('estoque')}}">
         <label>Categoria:</label>
         <select id="id_categorias" name="categoria_id">
             @foreach($categorias as $categoria)
-            <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+            <option value="{{$categoria->id ,old('categoria_id')}}">{{$categoria->categoria}}</option>
             @endforeach
         </select>
         

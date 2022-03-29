@@ -42,12 +42,15 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        Produto::create([
-            'nome' => $request->nome,
-            'valor' => $request->valor,
-            'estoque' => $request->estoque,
-            'categoria_id' => $request->categoria_id,
+        //Produto::create([
+        $request->validate([
+            'nome' => 'required',
+            'valor' => 'required',
+            'estoque' => 'required',
+            'categoria_id' => 'required',
         ]);
+
+
 
         //dd($request ->all()); //all para mostrar todas as informações que estao chegando
         //dd = debug and die. mostra na trela e encerra a aplicação
