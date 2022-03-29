@@ -33,7 +33,7 @@
 
 <div class="container">
     <h1 class="">Tabela de produtos</h1>
-    <a  href="/" class="text-decoration-none text-white"><button type="button" class="btn btn-primary"><b> + Novo produto</b></button></a>
+    <a  href="{{route('criar.produto')}}" class="text-decoration-none text-white"><button type="button" class="btn btn-primary"><b> + Novo produto</b></button></a>
 <i class="bi-alarm"></i>
 <table class="table  table-bordered ">
   <thead >
@@ -41,6 +41,7 @@
       <th scope="col">Produto</th>
       <th scope="col">Valor</th>
       <th scope="col">Quantidade em estoque</th>
+      <th scope="col">Categoria</th>
       <th scope="col">Editar</th>
       <th scope="col">Excluir</th>
     </tr>
@@ -52,6 +53,7 @@
       <td>{{$produto -> nome}}</td>
       <td>{{$produto -> valor}}</td>
       <td>{{$produto -> estoque}}</td>
+      <td>{{$produto->categoria->categoria}}</td>
       <td>
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
             <button type="submit" class="btn btn-outline-success">Editar</button>

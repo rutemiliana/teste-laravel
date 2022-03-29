@@ -12,6 +12,14 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function categoriaParaProduto()
+    
+    {
+        $categorias = Categoria::get();
+        return view('inicio' ,['categorias' => $categorias]);
+    }
+
     public function index()
     
     {

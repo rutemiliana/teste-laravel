@@ -18,12 +18,10 @@ use App\Http\Controllers\CategoriaController;
 use App\Models\Produto;
 
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/criar-produto' , [CategoriaController::class, 'categoriaParaProduto'])->name('criar.produto');
 
 //rota da criação de produto
-Route::post('/criar-produto', [ProdutoController::class, 'store'])->name('criar.produto');;
+Route::post('/criar-produto', [ProdutoController::class, 'store'])->name('criar.produto');
     //store = armazenar
     //criando um produto no banco de dados
 

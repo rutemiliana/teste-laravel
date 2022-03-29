@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 class ProdutoController extends Controller
 {
 
-    public function fornecedor(){
-        return $this->hasOne(Produto::class, 'id_produto');
-    }
+    
   
     /**
      * Display a listing of the resource.
@@ -18,8 +16,11 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
+    
     {
-        $produtos = Produto::get();
+        //acessando a variavel categoria da model produto
+        $produtos = Produto::with('categoria')->get();
         return view('ver-produtos', ['produtos' => $produtos]); 
     }
 
@@ -107,4 +108,5 @@ class ProdutoController extends Controller
         $produto->delete();
         return redirect()->route('ver.produtos');
     }
+
 }

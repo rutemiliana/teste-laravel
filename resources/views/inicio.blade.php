@@ -7,6 +7,7 @@
     <title>Produtos</title>
 </head>
 <body>
+    
     <form action="/criar-produto" method= 'POST'>
         @csrf {{-- gera token de segurnaça a cada envio--}}
         <label>Nome do produto:</label>
@@ -19,8 +20,9 @@
         <input type="text"  name="estoque" >
         <label>Categoria:</label>
         <select id="id_categorias" name="categoria_id">
-            <option value="1">Carro</option>
-            <option value="2">Moto</option>
+            @foreach($categorias as $categoria)
+            <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+            @endforeach
         </select>
         
         <br><br> 
