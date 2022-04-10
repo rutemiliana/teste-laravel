@@ -21,7 +21,7 @@ class ProdutoController extends Controller
     public function produtoCategorias()
     {
         //acessando a variavel categoria da model produto
-        //$produtos = Produto::with('categoria')->get();
+        $produtos = Produto::with('categorias')->get();
         return view('inicio', ['produtos' => $produtos , 'categoria']); 
     }
  
@@ -74,6 +74,8 @@ class ProdutoController extends Controller
             'estoque' => 'required',
             'categoria_id' => 'required',
         ]);
+
+        Produto::create($request->all());
 
 
 

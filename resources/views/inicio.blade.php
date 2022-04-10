@@ -43,7 +43,7 @@
         <input type="text"  name="estoque" value="{{old('estoque')}}">
         <label>Categoria:</label>
         @if(count($categorias) == 1 && $search)
-        <input name="categoria" type="text" value="{{$categorias[0]->categoria}}" Readonly>
+        <input name="categoria_id" type="text" value="{{$categorias[0]->id}}" Readonly>
     @else
     <input name="categoria" type="text" value="" Readonly>
     @endif
