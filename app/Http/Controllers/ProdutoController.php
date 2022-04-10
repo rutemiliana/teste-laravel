@@ -27,12 +27,11 @@ class ProdutoController extends Controller
  
 
     public function index()
-
     
     {
         //acessando a variavel categoria da model produto
         $produtos = Produto::with('categorias')->get();
-        return view('ver-produtos', ['produtos' => $produtos]); 
+        return view('ver-produtos' , compact('produtos')); 
     }
 
     /**
