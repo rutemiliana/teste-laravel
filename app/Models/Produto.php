@@ -13,7 +13,7 @@ class Produto extends Model
     
     public function categoria()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsToMany(Categoria::class, 'id' , 'categoria_id');
     }
     
     use HasFactory;

@@ -18,7 +18,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Models\Produto;
 
 
-Route::get('/criar-produto' , [CategoriaController::class, 'categoriaParaProduto'])->name('criar.produto');
+Route::get('/criar-produto' , [ProdutoController::class, 'create'])->name('criar.produto');
 
 //rota da criação de produto
 Route::post('/criar-produto', [ProdutoController::class, 'store'])->name('criar.produto');
