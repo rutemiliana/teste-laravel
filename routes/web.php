@@ -82,8 +82,5 @@ Route::post('/editar-categoria/{id}', [CategoriaController::class, 'update']);
 Route::get('/excluir-categoria/{id}', [CategoriaController::class, 'destroy']);
 
 
-//Route::get('/login', [CategoriaController::class, 'destroy']);
-
-
 
 
