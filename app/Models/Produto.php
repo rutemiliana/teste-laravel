@@ -11,9 +11,9 @@ class Produto extends Model
     //especificar quais campos da tabela vao ser trabalhados
     protected $fillable = ['nome' , 'valor' , 'estoque', 'categoria_id' ];
     
-    public function categoria()
+    public function categorias()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->hasOne(Categoria::class, 'id' , 'categoria_id');
     }
     
     use HasFactory;

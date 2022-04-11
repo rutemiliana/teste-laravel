@@ -53,7 +53,7 @@
       <td>{{$produto -> nome}}</td>
       <td>{{$produto -> valor}}</td>
       <td>{{$produto -> estoque}}</td>
-      <td>{{$produto->categoria->categoria}}</td>
+      <td>{{$produto->categorias->categoria}}</td>
       <td>
         <form action="/editar-produto/{{$produto -> id}}" method="GET">
             <button type="submit" class="btn btn-outline-success">Editar</button>

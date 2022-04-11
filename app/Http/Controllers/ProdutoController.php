@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produto;
+use App\Models\Categoria;
 use App\Models\Fornecedor;
 use Illuminate\Http\Request;
 
@@ -14,14 +15,23 @@ class ProdutoController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
-    public function index()
 
+    public function produtoCategorias()
+    {
+        //acessando a variavel categoria da model produto
+        $produtos = Produto::with('categorias')->get();
+        return view('inicio', ['produtos' => $produtos , 'categoria']); 
+    }
+ 
+
+    public function index()
     
     {
         //acessando a variavel categoria da model produto
-        $produtos = Produto::with('categoria')->get();
-        return view('ver-produtos', ['produtos' => $produtos]); 
+        $produtos = Produto::with('categorias')->get();
+        return view('ver-produtos' , compact('produtos')); 
     }
 
     /**
@@ -30,8 +40,22 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('inicio'); 
+    {       
+
+        //filtro de registro
+        $search = request('search');
+
+        //se tiver algo no campo search
+        if($search){
+            $categorias = Categoria::where([
+                ['categoria' , 'like' ,'%' .$search.'%']
+            ])->get();
+        } else {
+            $categorias = Categoria::all();
+        } 
+        return view('inicio', ['categorias' => $categorias , 'search' =>  $search ]); 
+
+   
     }
 
     /**
@@ -49,6 +73,8 @@ class ProdutoController extends Controller
             'estoque' => 'required',
             'categoria_id' => 'required',
         ] ,  );
+
+        Produto::create($request->all());
 
         Produto::create($request->all());
 
