@@ -9,6 +9,7 @@
 <body>
     
     <form action="/criar-produto" method= 'POST'>
+       {{-- @method('PUT')--}}
         @csrf {{-- gera token de segurnaça a cada envio--}}
         <label>Nome do produto:</label>
         <input type="text" name="nome" value="{{old('nome')}}"> 
@@ -29,6 +30,10 @@
         <button type="submit">Salvar Produto</button>
     </form>
     <br>
+
+    <pre>
+        {{print_r($errors)}}
+    </pre>
 
     <a href="{{route ('ver.produtos')}}"><button>Ver produtos</button></a>
     

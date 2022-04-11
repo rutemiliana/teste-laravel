@@ -9,6 +9,7 @@
         <!-- Bootstrap CSS -->
         <link href="{{asset ('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset ('css/style.css')}}" rel="stylesheet">
+        
     </head>
     <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

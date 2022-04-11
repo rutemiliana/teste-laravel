@@ -48,7 +48,9 @@ class ProdutoController extends Controller
             'valor' => 'required',
             'estoque' => 'required',
             'categoria_id' => 'required',
-        ]);
+        ] ,  );
+
+        Produto::create($request->all());
 
 
 
