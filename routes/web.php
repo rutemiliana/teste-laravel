@@ -36,6 +36,8 @@ Route::post('/editar-produto/{id}', [ProdutoController::class, 'update']);
 Route::get ('/excluir-produto/{id}', [ProdutoController::class, 'destroy']);
 
 
+
+
 /* //rotas de edicao do produto. get pra pegar o produto e mostrar na tela. Post pra enviar para o servidor
 Route::get('/editar-produto/{id}', function ($id) {
     $produto = Produto::find($id); //variavel pra armazenar tudo que estiver em Produto
@@ -80,6 +82,17 @@ Route::post('/editar-categoria/{id}', [CategoriaController::class, 'update']);
 
 //deletar categoria
 Route::get('/excluir-categoria/{id}', [CategoriaController::class, 'destroy']);
+
+
+//Upload de arquivo
+
+Route::post('produto-import', [ProdutoController::class, 'import'])->name('produto.import');
+
+//exportar excel
+
+Route::get('produto-export', [ProdutoController::class, 'export'])->name('produto.export');
+
+
 
 
 

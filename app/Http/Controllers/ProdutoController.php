@@ -5,33 +5,34 @@ use App\Models\Produto;
 use App\Models\Categoria;
 use App\Models\Fornecedor;
 use Illuminate\Http\Request;
+use Maathwebsite\Excel\Facades\Excel;
 
 class ProdutoController extends Controller
 {
 
-    
-  
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
+     *
      */
 
     public function produtoCategorias()
     {
         //acessando a variavel categoria da model produto
         $produtos = Produto::with('categorias')->get();
-        return view('inicio', ['produtos' => $produtos , 'categoria']); 
+        return view('inicio', ['produtos' => $produtos , 'categoria']);
     }
- 
+
 
     public function index()
-    
+
     {
         //acessando a variavel categoria da model produto
         $produtos = Produto::with('categorias')->get();
-        return view('ver-produtos' , compact('produtos')); 
+        return view('ver-produtos' , compact('produtos'));
     }
 
     /**
@@ -40,7 +41,7 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {       
+    {
 
         //filtro de registro
         $search = request('search');
@@ -52,10 +53,10 @@ class ProdutoController extends Controller
             ])->get();
         } else {
             $categorias = Categoria::all();
-        } 
-        return view('inicio', ['categorias' => $categorias , 'search' =>  $search ]); 
+        }
+        return view('inicio', ['categorias' => $categorias , 'search' =>  $search ]);
 
-   
+
     }
 
     /**
@@ -136,6 +137,13 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $produto->delete();
         return redirect()->route('ver.produtos');
+    }
+
+    //import
+
+    public function import(){
+        Excel::import(new ProdutoImport , request()->file('file'));
+        return back();
     }
 
 }

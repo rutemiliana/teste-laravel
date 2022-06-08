@@ -5,7 +5,7 @@
 @section('content')
 {{--
     <table>
-    @foreach($produtos as $produto) 
+    @foreach($produtos as $produto)
     <tr>
         <td>
         Nome: {{$produto -> nome}}
@@ -34,10 +34,23 @@
 <div class="container">
     <h1 class="">Tabela de produtos</h1>
     <a  href="{{route('criar.produto')}}" class="text-decoration-none text-white"><button type="button" class="btn btn-primary"><b> + Novo produto</b></button></a>
-<i class="bi-alarm"></i>
+    <i class="bi-alarm"></i>
+
+    <form action="{{route('produto.import')}}">
+        @csrf
+        <input type="file" name="file" class="form-control">
+        <button  class="btn btn-info form-control">Upload</button>
+    </form>
+    <a href="">
+        <button class="btn btn-primary">Generate PF</button>
+    </a>
+    <a href="{{route('produto.export')}}">
+        <button class="btn btn-success">Excel</button>
+    </a>
+
 <table class="table  table-bordered ">
   <thead >
-    <tr> 
+    <tr>
       <th scope="col">Produto</th>
       <th scope="col">Valor</th>
       <th scope="col">Quantidade em estoque</th>
@@ -49,7 +62,7 @@
   <tbody>
     @foreach($produtos as $produto)
     <tr>
-      
+
       <td>{{$produto -> nome}}</td>
       <td>{{$produto -> valor}}</td>
       <td>{{$produto -> estoque}}</td>
@@ -70,5 +83,5 @@
 </div>
 
 
-   
+
 @endsection
