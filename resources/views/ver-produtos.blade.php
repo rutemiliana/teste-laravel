@@ -35,6 +35,17 @@
     <h1 class="">Tabela de produtos</h1>
     <a  href="{{route('criar.produto')}}" class="text-decoration-none text-white"><button type="button" class="btn btn-primary"><b> + Novo produto</b></button></a>
 <i class="bi-alarm"></i>
+
+  <form action="{{route('produto.import')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <input type="file" name="file" class="form-control">
+    <button class="btn btn-info" class="form-control">Upload</button>
+  </form>
+
+  <a href="{{route('produto.export.table')}}">
+    <button class="btn btn-success">Excel</button>
+  </a>
+
 <table class="table  table-bordered ">
   <thead >
     <tr> 
@@ -48,8 +59,7 @@
   </thead>
   <tbody>
     @foreach($produtos as $produto)
-    <tr>
-      
+    <tr>      
       <td>{{$produto -> nome}}</td>
       <td>{{$produto -> valor}}</td>
       <td>{{$produto -> estoque}}</td>

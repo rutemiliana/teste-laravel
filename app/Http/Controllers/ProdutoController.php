@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Models\Fornecedor;
 use Illuminate\Http\Request;
+use App\Exports\ProdutoExport;
+use App\Exports\ProdutoTabelaExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ProdutoController extends Controller
-{
-
-    
-  
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -42,13 +44,19 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //Produto::create([
-        $request->validate([
+        Produto::create([
+            'nome' => $request->nome,
+            'valor' =>  $request->valor,
+            'estoque' =>  $request->estoque,
+            'categoria_id' =>  $request->categoria_id,
+        ]);
+        
+        /*$request->validate([
             'nome' => 'required',
             'valor' => 'required',
             'estoque' => 'required',
             'categoria_id' => 'required',
-        ]);
+        ]);*/
 
 
 
@@ -111,5 +119,18 @@ class ProdutoController extends Controller
         $produto->delete();
         return redirect()->route('ver.produtos');
     }
+
+
+    public function export() 
+    {
+        return Excel::download(new ProdutoExport, 'produtos.xlsx');
+    }
+
+    public function exportTable() 
+    {
+        return Excel::download(new ProdutoTabelaExport, 'tabelaProdutos.xlsx');
+    }
+
+    
 
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form action="/criar-produto" method= 'POST'>
+    <form action="{{route('criar.produto')}}" method= 'POST'>
         @csrf {{-- gera token de segurnaça a cada envio--}}
         <label>Nome do produto:</label>
         <input type="text" name="nome" value="{{old('nome')}}"> 

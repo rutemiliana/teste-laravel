@@ -82,5 +82,16 @@ Route::post('/editar-categoria/{id}', [CategoriaController::class, 'update']);
 Route::get('/excluir-categoria/{id}', [CategoriaController::class, 'destroy']);
 
 
+//upload
+Route::post('produto-import', [PordutoController::class , 'import'])-> name('produto.import');
+
+//importar excel
+Route::get('produto-export', [ProdutoController::class , 'export'])-> name('produto.export');
+
+Route::get('produto-tablela-export', [ProdutoController::class , 'exportTable'])-> name('produto.export.table');
+
+
+
+
 
 
