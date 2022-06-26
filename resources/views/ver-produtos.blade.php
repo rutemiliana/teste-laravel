@@ -36,6 +36,18 @@
     <a  href="{{route('criar.produto')}}" class="text-decoration-none text-white"><button type="button" class="btn btn-primary"><b> + Novo produto</b></button></a>
 <i class="bi-alarm"></i>
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+
   <form action="{{route('produto.import')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <input type="file" name="file" class="form-control">
